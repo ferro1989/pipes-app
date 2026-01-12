@@ -12,14 +12,14 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/numbers-page/numbers-page'),
   },
   {
+    path: 'uncommon',
+    title: 'Pipes no tan comunes',
+    loadComponent: () => import('./pages/uncommon-page/uncommon-page'),
+  },
+  {
     path: 'custom',
     title: 'Pipes Personalizados',
     loadComponent: () => import('./pages/custom-page/custom-page'),
-  },
-  {
-    path: 'uncommon',
-    title: 'Pipes Incomunes',
-    loadComponent: () => import('./pages/uncommon-page/uncommon-page'),
   },
   {
     path: '**',
