@@ -19,9 +19,9 @@ const client1 = {
   address: 'Almeria, España',
 };
 const client2 = {
-  name: 'Yani',
+  name: 'Fabi',
   gender: 'female',
-  age: 27,
+  age: 5,
   address: 'SS, Cuba',
 };
 @Component({
@@ -99,6 +99,6 @@ export default class UncommonPage {
   //Async Pipe con Observable
   myObservableTime = interval(2000).pipe(
     map((value) => value + 1),
-    tap((value) => console.log('tap: ', value))
+    tap((value) => console.log('tap: ', value)),
   );
 }

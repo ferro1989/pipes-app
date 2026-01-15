@@ -1,1 +1,127 @@
-<p>custom-page works!</p>,
+<section class="mx-10">
+  <h1 class="text-2xl font-bold">Pipes Personalizados</h1>
+  <h3 class="text-xl font-thin">Pipes no incluidos en Angular</h3>
+</section>
+
+<div class="stats shadow mx-5">
+  <div class="stat">
+    <div class="stat-title">ToggleCase Pipe</div>
+    <div class="stat-value">{{ name() | toggleCase: upperCase() }}</div>
+    <div class="stat-desc">{{ name() }}</div>
+    <button class="btn btn-primary mt-2" (click)="toggleCase()">Toggle Case</button>
+  </div>
+</div>
+<!--  -->
+<div class="divider my-2"></div>
+<!--  -->
+<section class="my-2">
+  <h1 class="text-2xl font-bold">
+    Filtrando por: {{ searchQuery() }} ordenando por:
+    {{ sortBy() }}
+  </h1>
+  <div class="flex gap-2 w-full justify-end mt-2">
+    <input
+      type="text"
+      class="input input-bordered w-full max-w-xs"
+      placeholder="Buscar por heroe"
+      (input)="searchQuery.set(txtSearch.value)"
+      #txtSearch
+    />
+    <div class="flex flex-1"></div>
+    <button (click)="sortBy.set('name')" class="btn btn-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+        <path
+          fill="currentColor"
+          fill-rule="evenodd"
+          d="M405.334 64v21.333h-42.667v341.333h42.667V448l-42.667-.001V448h-21.333l-.001-.001l-42.666.001v-21.333l42.666-.001V85.333h-42.666V64zm64 64v256H384v-42.667h42.667V170.667H384V128zM320 128v256H42.667V128zm-98.133 25.6H192v145.067c0 13.333-.833 21.666-1.458 29.687l-.082 1.068l-.079 1.067c-.296 4.09-.514 8.207-.514 12.978h29.867v-19.2a42.67 42.67 0 0 0 38.4 21.333a45.65 45.65 0 0 0 36.266-17.067a99.63 99.63 0 0 0 19.2-53.333c0-40.533-21.333-68.267-53.333-68.267a48.43 48.43 0 0 0-38.4 19.2zm-59.733 72.533a54.61 54.61 0 0 0-44.8-17.066a102.2 102.2 0 0 0-49.067 10.666l8.533 21.334a96.2 96.2 0 0 1 36.267-10.667a27.093 27.093 0 0 1 29.867 29.867v2.133H121.6a89.2 89.2 0 0 0-38.4 6.4a35.63 35.63 0 0 0-21.333 36.267a38.187 38.187 0 0 0 42.667 38.4a50.35 50.35 0 0 0 40.533-17.067v14.933H172.8a172.4 172.4 0 0 1-2.133-34.133v-38.4a66.77 66.77 0 0 0-8.533-42.667m-21.334 51.2v25.6a37.12 37.12 0 0 1-29.866 19.2a17.92 17.92 0 0 1-19.2-19.2c0-14.933 10.666-23.466 36.266-25.6zM251.734 230.4c17.066 0 29.866 17.067 29.866 44.8S270.934 320 253.867 320a35.84 35.84 0 0 1-32-21.333v-46.934a40.32 40.32 0 0 1 29.867-21.333"
+        />
+      </svg>
+      Por nombre
+    </button>
+    <button (click)="sortBy.set('canFly')" class="btn btn-accent">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20">
+        <path
+          fill="currentColor"
+          d="M11.1 10L18 2L7 10h2l-7 8l11-8zm-4.3 1H3.9l2.5-1.8l7.5-5.5L10 2L3 5v3c0 2 .5 3.9 1.5 5.6zm6.4-2H16l-2.4 1.8L6.5 16c1 .9 2.2 1.6 3.5 2c4.2-1.5 7.1-5.5 7-10V5l-.2-.1z"
+        />
+      </svg>
+      Por volar
+    </button>
+    <button (click)="sortBy.set('color')" class="btn btn-secondary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M12 4c-4.41 0-8 3.59-8 8s3.59 8 8 8c.28 0 .5-.22.5-.5a.54.54 0 0 0-.14-.35c-.41-.46-.63-1.05-.63-1.65a2.5 2.5 0 0 1 2.5-2.5H16c2.21 0 4-1.79 4-4c0-3.86-3.59-7-8-7m-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 10 6.5 10s1.5.67 1.5 1.5S7.33 13 6.5 13m3-4C8.67 9 8 8.33 8 7.5S8.67 6 9.5 6s1.5.67 1.5 1.5S10.33 9 9.5 9m5 0c-.83 0-1.5-.67-1.5-1.5S13.67 6 14.5 6s1.5.67 1.5 1.5S15.33 9 14.5 9m4.5 2.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5s1.5.67 1.5 1.5"
+          opacity="0.3"
+        />
+        <path
+          fill="currentColor"
+          d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10a2.5 2.5 0 0 0 1.86-4.17a.495.495 0 0 1 .37-.83H16c3.31 0 6-2.69 6-6c0-4.96-4.49-9-10-9m4 13h-1.77a2.5 2.5 0 0 0-2.5 2.5c0 .61.22 1.19.63 1.65c.06.07.14.19.14.35c0 .28-.22.5-.5.5c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.14 8 7c0 2.21-1.79 4-4 4"
+        />
+        <circle cx="6.5" cy="11.5" r="1.5" fill="currentColor" />
+        <circle cx="9.5" cy="7.5" r="1.5" fill="currentColor" />
+        <circle cx="14.5" cy="7.5" r="1.5" fill="currentColor" />
+        <circle cx="17.5" cy="11.5" r="1.5" fill="currentColor" />
+      </svg>
+      Por color
+    </button>
+    <button (click)="sortBy.set('creator')" class="btn btn-info">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+        <path
+          fill="currentColor"
+          d="M255.03 18.906c-27.872 0-53.334 14.366-72.31 38.625c-4.504 5.757-8.61 12.07-12.265 18.847l22.856 1.55l16.27-32.16l7.795 33.794l28.01 1.9l13.527-30.103l8.844 31.62l26.535 1.8l9.505-33.548l15.7 35.256l23.827 1.618c-4.853-11.426-10.913-21.81-17.924-30.836c-14.966-19.272-33.975-32.294-55.015-36.883a80.3 80.3 0 0 0-15.352-1.48zM162.19 94.56c-6.697 17.794-10.502 37.84-10.502 59.065c0 39.172 13.372 74.36 33.656 98.813l10.125 12.218l-.677.127c16.8 15.398 36.98 24.15 58.617 24.15c27.744 0 53.088-14.385 71.988-38.722c18.9-24.336 30.913-58.52 30.913-96.472c0-16.34-2.232-31.98-6.277-46.437l-30.926-2.097l-9.142 32.268l-15.1-33.91l-26.326-1.787l-16.09 35.803l-10.518-37.607l-25.883-1.757l-16.892 33.387l-8.092-35.082l-28.875-1.96zm-68.565 92.627v71.032h18.688v-25.345h38.542a171 171 0 0 1-7.76-18.688h-30.782v-27H93.624zm295.406 0v27h-21.497a169 169 0 0 1-7.467 18.688h28.965v25.344h18.69v-71.033h-18.69zm-52.723 79.225c-21.44 25.248-50.626 41.21-82.897 41.21c-31.14 0-59.41-14.863-80.617-38.59c-14.19 3.05-26.44 6.908-37.08 11.61l23.767 27.612l33.268-4.828l-19.107 21.28l19.995 23.23l32.318-11.088l-17.305 28.53l20.16 23.42l34.008-15.92l-16.81 35.903l20.678 24.027l36.53-17.104l-18.056 38.567l30.028 34.886h38.158v-68.312h18.687v68.312h78.94c-.015-65.304-.462-117.143-14.158-153.094c-14.12-37.066-40.573-59.58-100.505-69.65zm-217.48 23.244c-18.722 12.042-31.002 28.007-39.67 48.406c-15.068 35.456-17.94 86.204-18.188 151.094h79.093v-68.312h18.687v68.312h131.79l-21.476-24.95l-26.986 12.636l13.34-28.49l-24.232-28.153l-29.508 13.814l14.586-31.153l-20.97-24.362l-36.68 12.584l19.642-32.38l-17.918-20.817l-43.81 6.357l25.16-28.023l-22.862-26.564z"
+        />
+      </svg>
+      Por creador
+    </button>
+  </div>
+</section>
+<section class="overflow-x-auto w-full">
+  <table class="table table-xs w-full">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Puede volar</th>
+        <th>Color</th>
+        <th>Creador</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (
+        hero of heroes() | heroFilter: searchQuery() | heroSortBy: sortBy();
+        track hero.id;
+        let i = $index
+      ) {
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ hero.name }}</td>
+          <td>
+            <span
+              class="text-xs w-44"
+              [class.text-success]="hero.canFly"
+              [class.text-error]="!hero.canFly"
+            >
+              {{ hero.canFly | canFly }}
+            </span>
+          </td>
+          <td>
+            <span class="text-xs w-44" [style.color]="hero.color | heroTextColor">
+              {{ hero.color | heroColor | titlecase }}
+            </span>
+          </td>
+          <td>
+            <span
+              class="text-xs w-44"
+              [class.text-indigo-600]="hero.creator === 0"
+              [class.text-red-500]="hero.creator === 1"
+            >
+              {{ hero.creator | heroCreator }}
+            </span>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</section>
